@@ -57,8 +57,16 @@ class RegistroController {
   }
 
   async set(req, res) {
-    const { cod, cpf_usuario, cpf_aplicador, dt, dose, cod_vacina, cod_lote } =
-      req.body;
+    const {
+      ativo,
+      cod,
+      cpf_usuario,
+      cpf_aplicador,
+      dt,
+      dose,
+      cod_vacina,
+      cod_lote,
+    } = req.body;
 
     const { vacina, lote, aplicador, usuario } = await testeRegistros(
       cod_vacina,
