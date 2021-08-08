@@ -7,6 +7,10 @@ const VacinaController = require("./app/controller/VacinaController");
 const LoteController = require("./app/controller/LoteController");
 const RegistroController = require("./app/controller/RegistroController");
 
+routes.get("/", (req, res) => {
+  res.json({ message: "Welcome to bezkoder application." });
+});
+
 //routes aplicador
 routes.get("/aplicador", AplicadorController.index);
 
