@@ -12,7 +12,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose
-  .connect("mongodb+srv://root:124@cluster0.wnxni.mongodb.net/api-posto", {
+  .connect("mongodb+srv://root:123@cluster0.wnxni.mongodb.net/api-posto", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
