@@ -12,7 +12,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose
-  .connect("mongodb+srv://root:123@cluster0.wnxni.mongodb.net/api-posto", {
+  .connect("mongodb+srv://root:124@cluster0.wnxni.mongodb.net/api-posto", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -21,8 +21,8 @@ mongoose
   .then(() => {
     console.log("Conexão no banco de dados realizada com sucesso");
   })
-  .catch(() => {
-    console.log("Conexão com banco de dados não realizada");
+  .catch((err) => {
+    console.log("Conexão com banco de dados não realizada:  " + err);
   });
 
 app.use("/", rota);
