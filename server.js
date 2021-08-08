@@ -1,14 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 const mongoose = require("mongoose");
-const handlebars = require("express-handlebars");
-const bodyParser = require("body-parser");
 const app = express();
 const rota = require("./routes");
 
-app.use(express.json());
+var corsOptions = {
+  origin: "http://localhost:8081",
+};
 
-app.engine("handlebars", handlebars({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
+app.use(cors(corsOptions));
+app.use(express.json());
 
 mongoose
   .connect("mongodb+srv://root:123@cluster0.wnxni.mongodb.net/api-posto", {
