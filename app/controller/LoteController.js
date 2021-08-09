@@ -27,7 +27,6 @@ class LoteController {
     let cod = req.body.cod;
 
     let request = {
-      name: req.body.name,
       cod: req.body.cod,
       quantidade: req.body.quantidade,
       fabricante: req.body.fabricante,
@@ -54,7 +53,7 @@ class LoteController {
     } else {
       res.status(200).send({
         status: true,
-        mensagem: `${data.name} deletado com sucesso!`,
+        mensagem: `${data.cod} deletado com sucesso!`,
       });
     }
   }

@@ -2,11 +2,6 @@ const mongoose = require("mongoose");
 
 const LoteSchema = new mongoose.Schema(
   {
-    name: {
-      type: String,
-      required: true,
-    },
-
     cod: {
       type: String,
       required: true,
