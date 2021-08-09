@@ -1,12 +1,14 @@
 const express = require("express");
-// const cors = require("cors");
+const cors = require("cors");
 const mongoose = require("mongoose");
 const app = express();
 const rota = require("./routes");
-const bodyParser = require("body-parser");
 
-app.use(bodyParser.json());
+var corsOptions = {
+  origin: "http://localhost:4200",
+};
 
+app.use(cors(corsOptions));
 app.use(express.json());
 
 mongoose
