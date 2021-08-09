@@ -1,3 +1,4 @@
+var sha1 = require("sha1");
 const Usuario = require("../model/Usuario");
 const trataRequest = require("../tratamento/padronizaRequest");
 const validation = require("../tratamento/validation");
@@ -5,8 +6,9 @@ const validation = require("../tratamento/validation");
 class UsuarioController {
   async store(req, res) {
     let cpf = req.body.cpf;
+    let senha = sha1(req.body.senha);
     if (validation(cpf)) {
-      const data = await Usuario.create({ ...req.body, ativo: true });
+      const data = await Usuario.create({ ...req.body, ativo: true, senha });
       return res.json(data);
     } else {
       res.status(200).send({ status: false, mensagem: "cpf invalido" });
@@ -25,7 +27,7 @@ class UsuarioController {
       tel: req.body.tel,
       email: req.body.email,
       ativo: req.body.ativo,
-      senha: req.body.senha,
+      senha: sha1(req.body.senha),
       notification: req.body.notification,
       logradouro: req.body.logradouro,
     };

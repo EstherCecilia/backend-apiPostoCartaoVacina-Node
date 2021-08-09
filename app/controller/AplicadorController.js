@@ -1,3 +1,4 @@
+var sha1 = require("sha1");
 const Aplicador = require("../model/Aplicador");
 const trataRequest = require("../tratamento/padronizaRequest");
 const validation = require("../tratamento/validation");
@@ -5,8 +6,13 @@ const validation = require("../tratamento/validation");
 class AplicadorController {
   async store(req, res) {
     let cpf = req.body.cpf;
+    let senha = sha1(req.body.senha);
     if (validation(cpf)) {
-      const data = await Aplicador.create({ ...req.body, ativo: true });
+      const data = await Aplicador.create({
+        ...req.body,
+        ativo: true,
+        senha,
+      });
       return res.json(data);
     } else {
       res.status(200).send({ status: false, mensagem: "cpf invalido" });
@@ -25,7 +31,7 @@ class AplicadorController {
       tel: req.body.tel,
       email: req.body.email,
       ativo: req.body.ativo,
-      senha: req.body.senha,
+      senha: sha1(req.body.senha),
       admin: req.body.admin,
     };
 
