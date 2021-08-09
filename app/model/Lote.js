@@ -11,11 +11,7 @@ const LoteSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    dt_fabricacao: {
-      type: Date,
-      required: true,
-    },
-    dt_validade: {
+    dt_criacao: {
       type: Date,
       required: true,
     },

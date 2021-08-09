@@ -31,8 +31,7 @@ class LoteController {
       cod: req.body.cod,
       quantidade: req.body.quantidade,
       fabricante: req.body.fabricante,
-      dt_validade: req.body.dt_validade,
-      dt_fabricacao: req.body.dt_fabricacao,
+      dt_criacao: req.body.dt_criacao,
     };
 
     const data = await Lote.updateOne({ cod: cod }, trataRequest(request));

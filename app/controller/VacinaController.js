@@ -20,6 +20,8 @@ class VacinaController {
       name: req.body.name,
       cod: req.body.cod,
       description: req.body.description,
+      dt_fabricacao: req.body.dt_fabricacao,
+      dt_validade: req.body.dt_validade,
     };
 
     const data = await Vacina.updateOne({ cod: cod }, trataRequest(request));

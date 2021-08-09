@@ -11,7 +11,14 @@ const VacinaSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-
+    dt_fabricacao: {
+      type: Date,
+      required: true,
+    },
+    dt_validade: {
+      type: Date,
+      required: true,
+    },
     description: {
       type: String,
     },
