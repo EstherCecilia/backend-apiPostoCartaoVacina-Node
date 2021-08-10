@@ -31,6 +31,18 @@ const RegistroSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    aplicador: {
+      type: String,
+      required: true,
+    },
+    usuario: {
+      type: String,
+      required: true,
+    },
+    vacina: {
+      type: String,
+      required: true,
+    },
     ativo: {
       type: Boolean,
     },

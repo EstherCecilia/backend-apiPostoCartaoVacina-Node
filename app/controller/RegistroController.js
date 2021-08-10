@@ -36,7 +36,13 @@ class RegistroController {
       aplicador !== null &&
       usuario !== null
     ) {
-      const data = await Registro.create({ ...req.body, ativo: true });
+      const data = await Registro.create({
+        ...req.body,
+        ativo: true,
+        aplicador: aplicador.name,
+        usuario: usuario.name,
+        vacina: vacina.name,
+      });
       res.status(200).send({ status: true, data });
     } else {
       res.status(200).send({
