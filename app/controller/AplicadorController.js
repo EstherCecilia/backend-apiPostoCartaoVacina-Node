@@ -31,7 +31,7 @@ class AplicadorController {
       tel: req.body.tel,
       email: req.body.email,
       ativo: req.body.ativo,
-      senha: sha1(req.body.senha),
+      senha: req.body.senha && sha1(req.body.senha),
       admin: req.body.admin,
     };
 
