@@ -12,10 +12,7 @@ class AplicadorController {
       ...trataRequest({ email, cpf }),
       senha,
     });
-    console.log(data, {
-      ...trataRequest({ email, cpf }),
-      senha,
-    });
+
     if (data === null) {
       return res.json({ status: false, mensagem: "usuario não encontrado" });
     } else {
