@@ -32,6 +32,14 @@ const UsuarioSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
+      bairro: {
+        type: String,
+        required: true,
+      },
+      rua: {
+        type: String,
+        required: true,
+      },
       num: {
         type: Number,
         required: true,
