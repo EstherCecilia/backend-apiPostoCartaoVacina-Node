@@ -3,9 +3,18 @@ const trataRequest = require("../tratamento/padronizaRequest");
 
 class VacinaController {
   async store(req, res) {
-    const data = await Vacina.create(req.body);
-
-    return res.json(data);
+    try {
+      const data = await Vacina.create(req.body);
+      res.status(200).send({
+        status: true,
+        mensagem: `${data.name} criado com sucesso!`,
+      });
+    } catch (err) {
+      res.status(200).send({
+        status: false,
+        mensagem: `Erro ao criar`,
+      });
+    }
   }
 
   async index(req, res) {

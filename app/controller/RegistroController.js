@@ -36,14 +36,24 @@ class RegistroController {
       aplicador !== null &&
       usuario !== null
     ) {
-      const data = await Registro.create({
-        ...req.body,
-        ativo: true,
-        aplicador: aplicador.name,
-        usuario: usuario.name,
-        vacina: vacina.name,
-      });
-      res.status(200).send({ status: true, data });
+      try {
+        const data = await Registro.create({
+          ...req.body,
+          ativo: true,
+          aplicador: aplicador.name,
+          usuario: usuario.name,
+          vacina: vacina.name,
+        });
+        res.status(200).send({
+          status: true,
+          mensagem: `${data.name} criado com sucesso!`,
+        });
+      } catch (err) {
+        res.status(200).send({
+          status: false,
+          mensagem: `Erro ao criar`,
+        });
+      }
     } else {
       res.status(200).send({
         status: false,

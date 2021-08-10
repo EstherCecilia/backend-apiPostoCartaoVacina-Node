@@ -8,12 +8,22 @@ class AplicadorController {
     let cpf = req.body.cpf;
     let senha = sha1(req.body.senha);
     if (validation(cpf)) {
-      const data = await Aplicador.create({
-        ...req.body,
-        ativo: true,
-        senha,
-      });
-      return res.json(data);
+      try {
+        const data = await Aplicador.create({
+          ...req.body,
+          ativo: true,
+          senha,
+        });
+        res.status(200).send({
+          status: true,
+          mensagem: `${data.name} criado com sucesso!`,
+        });
+      } catch (err) {
+        res.status(200).send({
+          status: false,
+          mensagem: `Erro ao criar`,
+        });
+      }
     } else {
       res.status(200).send({ status: false, mensagem: "cpf invalido" });
     }

@@ -9,8 +9,18 @@ class LoteController {
     let vac = await Vacina.findOne({ cod: cod_vacina });
 
     if (vac !== null) {
-      const data = await Lote.create(req.body);
-      res.status(200).send({ status: true, data });
+      try {
+        const data = await Lote.create(req.body);
+        res.status(200).send({
+          status: true,
+          mensagem: `${data.name} criado com sucesso!`,
+        });
+      } catch (err) {
+        res.status(200).send({
+          status: false,
+          mensagem: `Erro ao criar`,
+        });
+      }
     } else {
       res
         .status(200)
